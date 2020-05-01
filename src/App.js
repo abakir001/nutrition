@@ -1,203 +1,94 @@
 import React, { useState } from 'react'
 import './App.css'
+import Button from './Button'
 import CountComponent from './CountComponent'
+import {Pie} from 'react-chartjs-2'
 
 const App = () => {
   const [state, setState] = useState({
-    calorie: 0,
+    fat: 0,
     protein: 0,
     carbs: 0,
-    productArray: []
+    countArray: []
   })
-  const setTotal = (caloriePaylaod, proteinPayload, carbsPayload) => {
+  const setTotal = (fatPayload, proteinPayload, carbsPayload) => {
     setState({
       ...state,
-      calorie: state.calorie + caloriePaylaod,
-      carbs: state.carbs + carbsPayload,
-      protein: state.protein + proteinPayload
+      fat: state.fat + fatPayload,
+      protein: state.protein + proteinPayload,
+      carbs: state.carbs + carbsPayload
     })
   }
-  const deleteItem = (item) => {
-    state.productArray = state.productArray.filter(e => e !== item)
+  const addItem = item => {
     setState({
       ...state,
-      productArray: state.productArray
+      countArray: [...state.countArray, item]
     })
   }
-  const handleCheck = (val) => {
-    return state.productArray.some(item => val.name === item.name);
-}
+  const deleteItem = item => {
+    state.countArray = state.countArray.filter(e => e !== item)
+    setState({
+      ...state,
+      countArray: state.countArray
+    })
+  }
+  const checkItem = val => {
+    return state.countArray.some(item => val.name === item.name)
+  }
   return (
     <div className="App">
       <div className="header-wrapper">
-        <div className="product-type">
-          <h2>Carbos</h2>
-          <div className="product-item">
-            <button className="menu-button"
-              onClick={() => {
-                if(handleCheck({name: 'Bread',calorie: 265,protein: 9,carbs: 49}) === false){
-                  setState({
-                    ...state, productArray: [...state.productArray, {
-                      name: 'Bread',
-                      calorie: 265,
-                      protein: 9,
-                      carbs: 49
-                    }]
-                  })
-                }
-              }}
-            >Bread</button>
-          </div>
-          <div className="product-item">
-            <button className="menu-button"
-              onClick={() => {
-                if(handleCheck({name: 'Pasta',calorie: 131,protein: 5,carbs: 25}) === false){
-                  setState({
-                    ...state, productArray: [...state.productArray, {
-                      name: 'Pasta',
-                      calorie: 131,
-                      protein: 5,
-                      carbs: 25
-                    }]
-                  })
-                }
-              }}
-            >Pasta</button>
-          </div>
-          <div className="product-item">
-            <button className="menu-button"
-              onClick={() => {
-                if(handleCheck({name: 'Rice',calorie: 130,protein: 2.4,carbs: 29}) === false){
-                  setState({
-                    ...state, productArray: [...state.productArray, {
-                      name: 'Rice',
-                      calorie: 130,
-                      protein: 2.4,
-                      carbs: 29
-                    }]
-                  })
-                }
-              }}
-            >Rice</button>
-          </div>
+        <div>
+          <h2>Carbs</h2>
+          <Button name="Bread" fat={1.9} protein={9} carbs={56.1} img="http://getdrawings.com/free-icon/bread-icon-56.png" checkItem={checkItem} addItem={addItem} />
+          <Button name="Beans" fat={0.5} protein={10.8} carbs={25.2} img="http://getdrawings.com/free-icon/pasta-icon-56.png" checkItem={checkItem} addItem={addItem} />
+          <Button name="Rice" fat={1.2} protein={7.2} carbs={79.5} img="http://getdrawings.com/free-icon/rice-icon-56.png" checkItem={checkItem} addItem={addItem} />
         </div>
-        {/* Second block */}
-        <div className="product-type">
+        <div>
           <h2>Protein</h2>
-          <div className="product-item">
-            <button className="menu-button"
-              onClick={() => {
-                if(handleCheck({name: 'Meat',calorie: 143,protein: 26,carbs: 0}) === false){
-                  setState({
-                    ...state, productArray: [...state.productArray, {
-                      name: 'Meat',
-                      calorie: 143,
-                      protein: 26,
-                      carbs: 0
-                    }]
-                  })
-                }
-              }}
-            >Meat</button>
-          </div>
-          <div className="product-item">
-            <button className="menu-button"
-              onClick={() => {
-                if(handleCheck({name: 'Chicken',calorie: 239,protein: 27,carbs: 0}) === false){
-                  setState({
-                    ...state, productArray: [...state.productArray, {
-                      name: 'Chicken',
-                      calorie: 239,
-                      protein: 27,
-                      carbs: 0
-                    }]
-                  })
-                }
-              }}
-            >Chicken</button>
-          </div>
-          <div className="product-item">
-            <button className="menu-button"
-              onClick={() => {
-                if(handleCheck({name: 'Fish',calorie: 150,protein: 26,carbs: 0}) === false){
-                  setState({
-                    ...state, productArray: [...state.productArray, {
-                      name: 'Fish',
-                      calorie: 150,
-                      protein: 26,
-                      carbs: 0
-                    }]
-                  })
-                }
-              }}
-            >Fish</button>
-          </div>
+          <Button name="Meat" fat={7.4} protein={29.5} carbs={0} img="http://getdrawings.com/free-icon/meat-icon-56.png" checkItem={checkItem} addItem={addItem} />
+          <Button name="Chicken" fat={4.4} protein={20.4} carbs={0} img="http://getdrawings.com/free-icon/chicken-icon-56.png" checkItem={checkItem} addItem={addItem} />
+          <Button name="Fish" fat={2.9} protein={19.1} carbs={0} img="http://getdrawings.com/free-icon/fish-icon-56.png" checkItem={checkItem} addItem={addItem} />
         </div>
-        {/* Third block */}
-        <div className="product-type">
-          <h2>Dairy Product</h2>
-          <div className="product-item">
-            <button className="menu-button"
-              onClick={() => {
-                if(handleCheck({name: 'Milk',calorie: 42,protein: 3.4,carbs: 5}) === false){
-                  setState({
-                    ...state, productArray: [...state.productArray, {
-                      name: 'Milk',
-                      calorie: 42,
-                      protein: 3.4,
-                      carbs: 5
-                    }]
-                  })
-                }
-              }}
-            >Milk</button>
-          </div>
-          <div className="product-item">
-            <button className="menu-button"
-              onClick={() => {
-                if(handleCheck({name: 'Cheese',calorie: 371,protein: 25,carbs: 1.3}) === false){
-                  setState({
-                    ...state, productArray: [...state.productArray, {
-                      name: 'Cheese',
-                      calorie: 371,
-                      protein: 25,
-                      carbs: 1.3
-                    }]
-                  })
-                }
-              }}
-            >Cheese</button>
-          </div>
-          <div className="product-item">
-            <button className="menu-button"
-              onClick={() => {
-                if(handleCheck({name: 'Cottage Cheese',calorie: 98,protein: 11,carbs: 3.4}) === false){
-                  setState({
-                    ...state, productArray: [...state.productArray, {
-                      name: 'Cottage Cheese',
-                      calorie: 98,
-                      protein: 11,
-                      carbs: 3.4
-                    }]
-                  })
-                }
-              }}
-            >Cottage Cheese</button>
-          </div>
+        <div>
+          <h2>Other Products</h2>
+          <Button name="Milk" fat={3.8} protein={3.3} carbs={4.7} img="https://cdn3.iconfinder.com/data/icons/drinks-food/100/milk-512.png" checkItem={checkItem} addItem={addItem} />
+          <Button name="Banana" fat={0.3} protein={1.1} carbs={19.2} img="http://getdrawings.com/free-icon/cheese-icon-56.png" checkItem={checkItem} addItem={addItem} />
+          <Button name="Egg" fat={11.5} protein={13} carbs={0.4} img="https://previews.123rf.com/images/ylivdesign/ylivdesign1909/ylivdesign190900473/129339216-plate-with-cottage-cheese-icon-outline-plate-with-cottage-cheese-vector-icon-for-web-design-isolated.jpg" checkItem={checkItem} addItem={addItem} />
         </div>
       </div>
       <div className="total">
-        <h3>Total:</h3>
-        <h3>Calorie: {state.calorie < 0 ? (0) : (parseInt(state.calorie))}</h3>
-        <h3>Protein: {state.protein < 0 ? (0) : (parseInt(state.protein))}</h3>
-        <h3>Carbs: {state.carbs < 0 ? (0) : (parseInt(state.carbs))}</h3>
+        <h2>Total: Fat:{state.fat < 0 ? 0 : state.fat}, Protein:{state.protein < 0 ? 0 : state.protein}, Carbs:{state.carbs < 0 ? 0 : state.carbs}</h2>
       </div>
-      <div className="product-wrapper">
-        {state.productArray.map(item => <CountComponent
-         item={item} name={item.name}
-          calorie={item.calorie} protein={item.protein}
-           carbs={item.carbs} deleteFunc={deleteItem}
-           setTotal={setTotal}/>)}
+      <div className="inline">
+      <div className="counter-wrapper">
+          {state.countArray.map(item => <CountComponent img={item.img}
+          name={item.name} fat={item.fat} protein={item.protein} carbs={item.carbs}
+          setTotal={setTotal} deleteItem={deleteItem} item={item}
+          />)}
+      </div>
+      <div className="piechart">
+      <Pie
+          data={{
+            labels: ['Fats', 'Protein', 'Carbs',],
+            datasets: [
+              {
+                backgroundColor: [
+                  '#b80000',
+                  '#fccb00',
+                  '#1273de'
+                ],
+                hoverBackgroundColor: [
+                '#eb9694',
+                '#fef3bd',
+                '#c4def6'
+                ],
+                data: [state.fat, state.protein, state.carbs]
+              }
+            ]
+          }}
+        />
+      </div>
       </div>
     </div>
   )

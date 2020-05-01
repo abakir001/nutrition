@@ -1,39 +1,40 @@
 import React, { useState } from 'react'
 
-const CountComponent = (props) => {
+const CountComponent = props => {
     const [weight, setWeight] = useState(0)
     return (
-        <div className="count-block">
-            <div className="inline button">
-                <h3>{props.name}</h3>
-                <button
-                    onClick={() => {
-                        setWeight(weight + 100)
-                        props.setTotal(props.calorie,props.protein,props.carbs)
-                    }
-                    }
-                >+</button>
-                <button
-                    onClick={() => {
-                        if (weight > 0) {
-                            setWeight(weight - 100)
-                            props.setTotal(-props.calorie,-props.protein, -props.carbs )
-                        }
-                    }
-                    }
-                >-</button>
-                <h3>Weight: {weight}</h3>
-                <button onClick={
-                    () => {
-                        props.deleteFunc(props.item)
-                        props.setTotal(-props.calorie * weight / 100,-props.protein * weight / 100,-props.carbs * weight / 100)
-                    }
-                }>Delete</button>
+        <div className="counter-item">
+            <div>
+                <img alt={props.name} src={props.img}/>
             </div>
-            <div className="inline">
-                <h3>Calorie: {parseInt(props.calorie * weight / 100)}</h3>
-                <h3>Protein: {parseInt(props.protein * weight / 100)}</h3>
-                <h3>Carbs: {parseInt(props.carbs * weight / 100)}</h3>
+            <div>
+                <h3>{props.name}</h3>
+            </div>
+            <div className="plus-minus-block">
+                <button onClick={() => {
+                    setWeight(weight + 100)
+                    props.setTotal(props.fat, props.protein, props.carbs)
+                }}>+</button>
+                <button onClick={() => {
+                    if (weight > 0) {
+                        setWeight(weight - 100)
+                        props.setTotal(-props.fat, -props.protein, -props.carbs)
+                    }
+                }}>-</button>
+            </div>
+            <div className="weight-block">
+                <h4>Weight: {weight}</h4>
+            </div>
+            <div className="data">
+                <h4>Fat:{props.fat * weight / 100}, Protein:{props.protein * weight / 100}, Carbs:{props.carbs * weight / 100}</h4>
+            </div>
+            <div className="delete-block">
+                <button
+                    onClick={()=>{
+                        props.deleteItem(props.item)
+                        props.setTotal(-props.fat * weight / 100, -props.protein * weight / 100, -props.carbs * weight / 100)
+                    }}
+                >Delete</button>
             </div>
         </div>
     )
