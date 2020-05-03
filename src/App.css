@@ -12,31 +12,72 @@
   cursor:pointer;
   overflow: hidden;
   outline:none;
+  font-size: 20px;
+  padding: 10px;
+  transition: 0.3s;
 }
-.add-item:hover{
-  background-color: rgb(89, 233, 221);
+.fat-block button:hover{
+  background-color: #b80000;
+  border-radius: 20%;
+}
+.protein-block button:hover{
+  background-color: #ffae00;
+  border-radius: 20%;
+}
+.carbs-block button:hover{
+  background-color: #1273de;
   border-radius: 20%;
 }
 .counter-item{
   display: grid;
   grid-template-columns: repeat(6,1fr);
+  transition: 0.2s;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.counter-item:hover{
+  background-color: rgb(118, 233, 118);
+  border-radius: 10px;
+  margin-top: 5px;
 }
 img{
-  width: 75px;
+  width: 50px;
 }
 .total{
-  margin-top: 20px;
+  margin-top: 40px;
+}
+.carbs-block{
+  background-color: #c4def6;
+}
+.protein-block{
+  background-color: #fef3bd;
+}
+.fat-block{
+  background-color: #eb9694;
+}
+.button-wrapper{
+  padding: 10px;
 }
 .inline{
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
   display: grid;
-  grid-template-areas: "c c c a";
+  grid-template-areas: "c c c c c a";
+  margin-top: 30px;
 }
 .counter-wrapper{
   margin-top: 20px;
   grid-area: c;
 }
 .piechart{
+  margin-top: 20px;
   grid-area: a;
+}
+span.fat-span{
+  color: #b80000;
+}
+span.protein-span{
+  color: #e98b1f;
+}
+span.carbs-span{
+  color: #1273de;
 }

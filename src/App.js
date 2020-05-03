@@ -38,27 +38,27 @@ const App = () => {
   return (
     <div className="App">
       <div className="header-wrapper">
-        <div>
-          <h2>Carbs</h2>
+        <div className="carbs-block">
+          <h2>Carbs Products</h2>
           <Button name="Bread" fat={1.9} protein={9} carbs={56.1} img="http://getdrawings.com/free-icon/bread-icon-56.png" checkItem={checkItem} addItem={addItem} />
           <Button name="Beans" fat={0.5} protein={10.8} carbs={25.2} img="http://getdrawings.com/free-icon/beans-icon-56.png" checkItem={checkItem} addItem={addItem} />
           <Button name="Rice" fat={1.2} protein={7.2} carbs={79.5} img="http://getdrawings.com/free-icon/rice-icon-56.png" checkItem={checkItem} addItem={addItem} />
         </div>
-        <div>
-          <h2>Protein</h2>
+        <div className="protein-block">
+          <h2>Protein Products</h2>
           <Button name="Meat" fat={7.4} protein={29.5} carbs={0} img="http://getdrawings.com/free-icon/meat-icon-56.png" checkItem={checkItem} addItem={addItem} />
           <Button name="Chicken" fat={4.4} protein={20.4} carbs={0} img="http://getdrawings.com/free-icon/chicken-icon-56.png" checkItem={checkItem} addItem={addItem} />
           <Button name="Fish" fat={2.9} protein={19.1} carbs={0} img="http://getdrawings.com/free-icon/fish-icon-56.png" checkItem={checkItem} addItem={addItem} />
         </div>
-        <div>
-          <h2>Other Products</h2>
+        <div className="fat-block">
+          <h2>Fat Products</h2>
           <Button name="Milk" fat={3.8} protein={3.3} carbs={4.7} img="https://cdn3.iconfinder.com/data/icons/drinks-food/100/milk-512.png" checkItem={checkItem} addItem={addItem} />
           <Button name="Banana" fat={0.3} protein={1.1} carbs={19.2} img="http://getdrawings.com/free-icon/banana-icon-56.png" checkItem={checkItem} addItem={addItem} />
           <Button name="Egg" fat={11.5} protein={13} carbs={0.4} img="http://getdrawings.com/free-icon/egg-icon-56.png" checkItem={checkItem} addItem={addItem} />
         </div>
       </div>
       <div className="total">
-        <h2>Total: Fat:{state.fat < 0 ? 0 : state.fat}, Protein:{state.protein < 0 ? 0 : state.protein}, Carbs:{state.carbs < 0 ? 0 : state.carbs}</h2>
+        <h2>Total: Fat:<span className="fat-span">{state.fat < 0 ? 0 : state.fat.toFixed(2)}</span>, Protein:<span className="protein-span">{state.protein < 0 ? 0 : state.protein.toFixed(2)}</span>, Carbs:<span className="carbs-span">{state.carbs < 0 ? 0 : state.carbs.toFixed(2)}</span></h2>
       </div>
       <div className="inline">
       <div className="counter-wrapper">
