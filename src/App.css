@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+}
+.header-wrapper{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.image-block{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.add-item{
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+.add-item:hover{
+  background-color: rgb(89, 233, 221);
+  border-radius: 20%;
+}
+.counter-item{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+}
+img{
+  width: 75px;
+}
+.total{
+  margin-top: 20px;
+}
+.inline{
+  display: grid;
+  grid-template-areas: "c c c c a";
+}
+.counter-wrapper{
+  margin-top: 20px;
+  grid-area: c;
+}
+.piechart{
+  grid-area: a;
+}
