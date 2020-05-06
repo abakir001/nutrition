@@ -4,8 +4,8 @@ const Button = props => {
     return(
         <div className="button-wrapper">
             <button className="add-item" onClick={()=>{
-                if(props.checkItem({name:props.name,fat:props.fat,protein:props.protein,carbs:props.carbs,img: props.img}) === false){
-                    props.addItem({name:props.name,fat:props.fat,protein:props.protein,carbs:props.carbs, img: props.img})
+                if(props.checkItem({name:props.name,fat:props.fat,protein:props.protein,carbs:props.carbs,img: props.img, calories: props.calories}) === false){
+                    props.addItem({name:props.name,fat:props.fat,protein:props.protein,carbs:props.carbs, img: props.img, calories: props.calories})
                 }
             }}>{props.name}</button>
         </div>

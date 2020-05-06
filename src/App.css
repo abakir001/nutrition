@@ -81,3 +81,11 @@ span.protein-span{
 span.carbs-span{
   color: #1273de;
 }
+.kind-sport{
+  width: 50%;
+  display: inline-block;
+}
+.weight-block{
+  width: 50%;
+  display: inline-block;
+}
