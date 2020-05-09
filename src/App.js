@@ -3,7 +3,7 @@ import './App.css'
 import Button from './Button'
 import CountComponent from './CountComponent'
 import { Pie } from 'react-chartjs-2'
-import CaloryCounter from './CaloryCounter';
+import CaloryCounter from './CaloryCounter'
 
 const App = () => {
   const [state, setState] = useState({

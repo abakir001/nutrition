@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import './App.css';
-import InputItem from './Input';
+import React, { useState } from 'react'
+import './App.css'
+import InputItem from './Input'
 import {Bar} from 'react-chartjs-2'
 
 const CaloryCounter = props => {
@@ -72,14 +72,15 @@ const CaloryCounter = props => {
                     {
                         label: 'Calories Data',
                         data:[0, state.calories, props.calories, 0],
-                        backgroundColor:[' ', 'red', 'blue']
+                        backgroundColor:[' ', '#b80000', '#5A6794', ' '],
+                        hoverBackgroundColor: [' ', '#eb9694', '#8794C0', ' ']
                     }
                 ]
             }}
         />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
       </div>
     </div>
-  );
+  )
 }
 
 export default CaloryCounter
