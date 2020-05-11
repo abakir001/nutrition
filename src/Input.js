@@ -1,6 +1,7 @@
 import React from 'react'
 
 const InputItem = props => {
+    console.log('Input Component Rendered')
     return(
         <div className="input-item">
             <label>
@@ -15,4 +16,4 @@ const InputItem = props => {
         </div>
     )
 }
-export default InputItem
+export default React.memo(InputItem)

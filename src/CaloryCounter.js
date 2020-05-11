@@ -1,23 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import './App.css'
 import InputItem from './Input'
 import {Bar} from 'react-chartjs-2'
 
 const CaloryCounter = props => {
+    console.log('Calory Counter Rendered')
   const [state, setState] = useState({
     calories: '0',
     weight: '0',
     caloryArray: null
   })
 
-  const handleSportChange = event => {
+  const handleSportChange = useCallback(event => {
     setState({ ...state, caloryArray: event.target.value })
-  }
-  const handleWeightChange = event => {
-    setState({ ...state, weight: event.target.value })
-  }
+  },[state])
 
-  const setSubmit = event => {
+  const handleWeightChange = useCallback(event => {
+    setState({ ...state, weight: event.target.value })
+  },[state])
+
+  const setSubmit = useCallback(event => {
     event.preventDefault()
     if (state.caloryArray !== null && state.weight !== 0) {
       switch (state.weight) {
@@ -37,7 +39,8 @@ const CaloryCounter = props => {
           break
       }
     }
-  }
+  }, [state])
+
   return (
     <div className="App">
       <header>
@@ -83,4 +86,4 @@ const CaloryCounter = props => {
   )
 }
 
-export default CaloryCounter
+export default React.memo(CaloryCounter)

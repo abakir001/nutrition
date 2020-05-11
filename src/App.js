@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import './App.css'
 import Button from './Button'
 import CountComponent from './CountComponent'
@@ -13,8 +13,7 @@ const App = () => {
     calories: 0,
     countArray: []
   })
-  window.state = state
-  const setTotal = (fatPayload, proteinPayload, carbsPayload, caloriesPayload) => {
+  const setTotal = useCallback((fatPayload, proteinPayload, carbsPayload, caloriesPayload) => {
     setState({
       ...state,
       fat: state.fat + fatPayload,
@@ -22,14 +21,14 @@ const App = () => {
       carbs: state.carbs + carbsPayload,
       calories: state.calories + caloriesPayload
     })
-  }
-  const addItem = item => {
+  }, [state])
+  const addItem = useCallback(item => {
     setState({
       ...state,
       countArray: [...state.countArray, item]
     })
-  }
-  const deleteItem = (item, fatPayload, proteinPayload, carbsPayload, caloriesPayload) => {
+  }, [state])
+  const deleteItem = useCallback((item, fatPayload, proteinPayload, carbsPayload, caloriesPayload) => {
     state.countArray = state.countArray.filter(e => e !== item)
     setState({
       fat: state.fat + fatPayload,
@@ -38,10 +37,10 @@ const App = () => {
       calories: state.calories + caloriesPayload,
       countArray: state.countArray
     })
-  }
-  const checkItem = val => {
+  }, [state])
+  const checkItem = useCallback(val => {
     return state.countArray.some(item => val.name === item.name)
-  }
+  }, [state.countArray])
   return (
     <div className="App">
       <div className="header-wrapper">

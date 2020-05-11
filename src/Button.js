@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Button = props => {
+    console.log('Button Component Rendered')
     return(
         <div className="button-wrapper">
             <button className="add-item" onClick={()=>{
@@ -11,4 +12,4 @@ const Button = props => {
         </div>
     )
 }
-export default Button
+export default React.memo(Button)

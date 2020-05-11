@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 const CountComponent = props => {
+    console.log('Count Component Rendered')
     const [weight, setWeight] = useState(0)
     return (
         <div className="counter-item">
@@ -39,4 +40,4 @@ const CountComponent = props => {
     )
 }
 
-export default CountComponent
+export default React.memo(CountComponent)
