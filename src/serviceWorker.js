@@ -101,7 +101,11 @@ function registerValidSW(swUrl, config) {
 function checkValidServiceWorker(swUrl, config) {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl, {
+<<<<<<< HEAD
     headers: { 'Service-Worker': 'script' },
+=======
+    headers: { 'Service-Worker': 'script' }
+>>>>>>> 3d9b6e903473052d4be4badd91804e98cecee380
   })
     .then(response => {
       // Ensure service worker exists, and that we really are getting a JS file.
