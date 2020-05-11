@@ -93,6 +93,7 @@ const App = () => {
         </div>
       </div>
       <div className="total">
+      //This is total calories
         <h2>Total: Fat:{state.fat < 0 ? 0 : state.fat}, Protein:{state.protein < 0 ? 0 : state.protein}, Carbs:{state.carbs < 0 ? 0 : state.carbs}</h2>
       </div>
       <div className="inline">
