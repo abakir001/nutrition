@@ -61,7 +61,7 @@ img{
 .inline{
   width: 100%;
   display: grid;
-  grid-template-areas: "c c c c c a";
+  grid-template-areas: "c c c a";
   margin-top: 30px;
 }
 .counter-wrapper{

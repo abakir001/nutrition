@@ -32,6 +32,7 @@ const CountComponent = props => {
             <div className="delete-block">
                 <button
                     onClick={()=>{
+                        setWeight(0)
                         props.deleteItem(props.item,-props.fat * weight / 100, -props.protein * weight / 100, -props.carbs * weight / 100, -props.calories * weight / 100)
                     }}
                 >Delete</button>
