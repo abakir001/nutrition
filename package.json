@@ -1,14 +1,9 @@
 {
-<<<<<<< HEAD
   "name": "nutrition",
-=======
-  "name": "hooks-learn",
->>>>>>> 3d9b6e903473052d4be4badd91804e98cecee380
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-<<<<<<< HEAD
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "chart.js": "^2.9.3",
@@ -16,15 +11,6 @@
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
-=======
-    "@testing-library/react": "^9.4.1",
-    "@testing-library/user-event": "^7.2.1",
-    "chart.js": "^2.9.3",
-    "react": "^16.13.0",
-    "react-chartjs-2": "^2.9.0",
-    "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
->>>>>>> 3d9b6e903473052d4be4badd91804e98cecee380
   },
   "scripts": {
     "start": "react-scripts start",

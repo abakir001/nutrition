@@ -13,20 +13,12 @@ const CountComponent = props => {
             <div className="plus-minus-block">
                 <button onClick={() => {
                     setWeight(weight + 100)
-<<<<<<< HEAD
-                    props.setTotal(props.fat, props.protein, props.carbs)
-=======
                     props.setTotal(props.fat, props.protein, props.carbs, props.calories)
->>>>>>> 3d9b6e903473052d4be4badd91804e98cecee380
                 }}>+</button>
                 <button onClick={() => {
                     if (weight > 0) {
                         setWeight(weight - 100)
-<<<<<<< HEAD
-                        props.setTotal(-props.fat, -props.protein, -props.carbs)
-=======
                         props.setTotal(-props.fat, -props.protein, -props.carbs, -props.calories)
->>>>>>> 3d9b6e903473052d4be4badd91804e98cecee380
                     }
                 }}>-</button>
             </div>
@@ -39,12 +31,8 @@ const CountComponent = props => {
             <div className="delete-block">
                 <button
                     onClick={()=>{
-<<<<<<< HEAD
-                        props.deleteItem(props.item)
-                        props.setTotal(-props.fat * weight / 100, -props.protein * weight / 100, -props.carbs * weight / 100)
-=======
+                        setTotal(0)
                         props.deleteItem(props.item,-props.fat * weight / 100, -props.protein * weight / 100, -props.carbs * weight / 100, -props.calories * weight / 100)
->>>>>>> 3d9b6e903473052d4be4badd91804e98cecee380
                     }}
                 >Delete</button>
             </div>

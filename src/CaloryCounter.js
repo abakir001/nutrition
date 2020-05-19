@@ -62,7 +62,8 @@ const CaloryCounter = props => {
         </form>
       </div>
       <div>
-        <h2>Calories: {state.calories}</h2>
+        <h2>Gained Calories: {props.calories}</h2>
+        <h2>Burned Calories: {state.calories}</h2>
       </div>
       <div className="bar-chart">
         <Bar 

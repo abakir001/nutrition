@@ -5,14 +5,11 @@
   display: grid;
   grid-template-columns: repeat(3,1fr);
 }
-<<<<<<< HEAD
 .image-block{
   position: absolute;
   top: 0;
   right: 0;
 }
-=======
->>>>>>> 3d9b6e903473052d4be4badd91804e98cecee380
 .add-item{
   background-color: Transparent;
   background-repeat:no-repeat;
@@ -20,13 +17,9 @@
   cursor:pointer;
   overflow: hidden;
   outline:none;
-<<<<<<< HEAD
 }
 .add-item:hover{
   background-color: rgb(89, 233, 221);
-=======
-  font-size: 20px;
-  padding: 10px;
   transition: 0.3s;
 }
 .fat-block button:hover{
@@ -34,18 +27,16 @@
   border-radius: 20%;
 }
 .protein-block button:hover{
-  background-color: #ffae00;
+  background-color: #1273de;
   border-radius: 20%;
 }
 .carbs-block button:hover{
-  background-color: #1273de;
->>>>>>> 3d9b6e903473052d4be4badd91804e98cecee380
+  background-color: #ffae00;
   border-radius: 20%;
 }
 .counter-item{
   display: grid;
   grid-template-columns: repeat(6,1fr);
-<<<<<<< HEAD
 }
 img{
   width: 75px;
@@ -56,7 +47,7 @@ img{
 .inline{
   display: grid;
   grid-template-areas: "c c c c a";
-=======
+
   transition: 0.2s;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -73,10 +64,10 @@ img{
   margin-top: 40px;
 }
 .carbs-block{
-  background-color: #c4def6;
+  background-color: #fef3bd;
 }
 .protein-block{
-  background-color: #fef3bd;
+  background-color: #c4def6;
 }
 .fat-block{
   background-color: #eb9694;
@@ -89,28 +80,23 @@ img{
   display: grid;
   grid-template-areas: "c c c c c a";
   margin-top: 30px;
->>>>>>> 3d9b6e903473052d4be4badd91804e98cecee380
 }
 .counter-wrapper{
   margin-top: 20px;
   grid-area: c;
 }
 .piechart{
-<<<<<<< HEAD
   grid-area: a;
-}
-=======
-  margin-top: 20px;
-  grid-area: a;
+
 }
 span.fat-span{
   color: #b80000;
 }
 span.protein-span{
-  color: #e98b1f;
+  color: #1273de;
 }
 span.carbs-span{
-  color: #1273de;
+  color: #e98b1f;
 }
 .kind-sport{
   width: 50%;
@@ -120,4 +106,3 @@ span.carbs-span{
   width: 50%;
   display: inline-block;
 }
->>>>>>> 3d9b6e903473052d4be4badd91804e98cecee380
