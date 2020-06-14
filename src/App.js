@@ -13,6 +13,7 @@ const App = () => {
     calories: 0,
     countArray: []
   })
+  window.state = state
   const setTotal = (fatPayload, proteinPayload, carbsPayload, caloriesPayload) => {
     setState({
       ...state,
